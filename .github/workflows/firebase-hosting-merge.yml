@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: yarn install --frozen-lockfile && yarn build
+      - run: yarn install --frozen-lockfile &&  PUBLIC_URL='.' REACT_APP_API_URL=https://us-central1-nota-de-corretagem-to-csv.cloudfunctions.net/cloud_function yarn build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
